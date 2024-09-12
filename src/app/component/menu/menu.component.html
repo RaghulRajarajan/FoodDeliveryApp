@@ -1,0 +1,65 @@
+
+<div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <!-- user -->
+          <li class="nav-item active">
+            <a class="nav-link" href="/home">Home</a>
+          </li>
+          <li class="nav-item">
+            <!-- user false true-->
+            <a class="nav-link" *ngIf="!hardcodedAuthentication.isUserLoggedIn() && !hardcodedAuthentication.isAdminLoggedIn() && !hardcodedAuthentication.isRestLoggedIn()" routerLink="/RegisterRestaurant">Add/Login Restaurant</a>
+          </li>
+
+          <li class="nav-item">
+            <a *ngIf="!hardcodedAuthentication.isUserLoggedIn() && !hardcodedAuthentication.isAdminLoggedIn()" class="nav-link" href="/contactus">Contact Us</a>
+          </li>
+          
+          <li class="nav-item">
+            <a *ngIf="!hardcodedAuthentication.isUserLoggedIn() && !hardcodedAuthentication.isAdminLoggedIn()" class="nav-link" href="/help">Help</a>
+          </li>
+          
+          <form class="d-flex" role="search">
+            <!-- <input *ngIf="hardcodedAuthentication.isUserLoggedIn()" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button *ngIf="hardcodedAuthentication.isUserLoggedIn()" class="btn btn-outline-success" type="submit">Search</button> -->
+            <mat-form-field *ngIf="hardcodedAuthentication.isUserLoggedIn()">
+              <mat-label style="color: aliceblue;">Search any restaurant</mat-label>
+              <input matInput
+              #searchkeyword
+              (keyup)="searchByKeyword(searchkeyword.value)"
+              name="searchKey"
+              id="searchkey"
+              placeholder="Search any Restaurant">
+              <mat-hint>Search any restaurant</mat-hint>
+              </mat-form-field>
+          </form>
+
+          <!-- Admin -->
+          <li class="nav-item">
+            <a *ngIf="hardcodedAuthentication.isAdminLoggedIn()" class="nav-link" (click)="customerview()">All Customer</a>
+          </li>
+          <li class="nav-item">
+            <a *ngIf="hardcodedAuthentication.isAdminLoggedIn()" class="nav-link" (click)="resturantview()">All Restaurant</a>
+          </li>
+        </ul>
+        
+        <ul class="navbar-nav navbar-collapse justify-content-end">
+          <li class="nav-item active" *ngIf="hardcodedAuthentication.isUserLoggedIn()" style="color: aliceblue; margin-top:15px ;" ><h2>
+            Welcome, {{customer.customername}}!</h2>
+          </li>
+          <li><button *ngIf="!hardcodedAuthentication.isUserLoggedIn() && !hardcodedAuthentication.isAdminLoggedIn() && !hardcodedAuthentication.isRestLoggedIn()"  (click)="Openpopup()" mat-raised-button class="btn btn-outline-primary mr-10">Log in</button></li>
+        </ul>
+
+          <li><button *ngIf="!hardcodedAuthentication.isUserLoggedIn() && !hardcodedAuthentication.isAdminLoggedIn() && !hardcodedAuthentication.isRestLoggedIn()" (click)="Openpopup2()"mat-raised-button class="btn btn-outline-primary ml-10">Sign up</button></li>
+        
+          <li><button *ngIf="hardcodedAuthentication.isUserLoggedIn() || hardcodedAuthentication.isAdminLoggedIn() || hardcodedAuthentication.isRestLoggedIn()" (click)="adminlogout()" mat-raised-button class="btn btn-outline-primary ml-10">Log Out</button></li>
+          <li><button *ngIf="hardcodedAuthentication.isUserLoggedIn()  || hardcodedAuthentication.isRestLoggedIn()"(click)="customerManage()" mat-raised-button class="btn btn-outline-primary ml-10">Manage Profile</button></li>
+          <li><button *ngIf="hardcodedAuthentication.isUserLoggedIn()" mat-raised-button class="btn btn-outline-primary ml-10" routerLink="/cart">view cart</button></li>
+        </div>
+    </nav>
+
+</div>

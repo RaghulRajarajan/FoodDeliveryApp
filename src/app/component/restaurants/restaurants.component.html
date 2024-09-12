@@ -1,0 +1,22 @@
+<app-menu></app-menu>
+
+<html>
+    <div class="container">
+        <div class="row">
+            <div *ngFor="let rest of restaurant | paginate: { itemsPerPage: count, currentPage: p }" class="col-6 col-md-4 mt-4">
+        
+                <div class="card"> 
+                    <img class="card-img-top" src="{{rest.pic}}" alt="Card image cap" (click)="viewRestaurant(rest.restid)">
+                    <div class="card-body">
+                        <p class="card-text"><b>{{rest.restname}}</b></p>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+    <br>
+</html>
+
+<div class="text-right">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

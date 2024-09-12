@@ -1,0 +1,97 @@
+<app-menu></app-menu>
+
+
+<div class="container register">
+  <div class="row">
+    <div class="col-md-3 register-left">
+      <h1>WELCOME!</h1>
+      <p style="font-size: large;"><b>Registered Already? Please login here</b></p>
+      <input type="submit" id="btnlogin" name="Login" value="Login" routerLink="/RestaurantSignup" style="margin: 0; padding: 0; height: 30px; font-size: large;"/><br>
+    </div>
+    <div class="col-md-9 register-right">
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <h2 class="register-heading">Restaurant Registration</h2>
+            <form [formGroup]=" registrationForm" (ngSubmit)="addRestaurant()" class="form-container" class="row register-form">
+              <div class="col-md-6">
+
+                <div class="form-group">
+                  <input type="text" class="form-control" id="restaurantName" placeholder="Enter restaurant name"
+                    formControlName="restname" name="restaurantName">
+                </div>
+                <span style="color: red;" *ngIf="restname?.invalid && restname?.touched">This field is required</span>
+
+                <div class="form-group">
+                  <input type="text" class="form-control" id="email" placeholder="Enter your email"
+                    formControlName="email" name="email">
+                </div>
+                <span style="color: red;" *ngIf="email?.invalid && email?.touched">This field is required</span>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="managerName" placeholder="Enter manager name"
+                    formControlName="managerName" name="managerName">
+                </div>
+                <span style="color: red;" *ngIf="managerName?.invalid && managerName?.touched">This field is
+                  required</span>
+
+                <div class="form-group">
+                  <input type="text" class="form-control" id="contactNumber" placeholder="Enter contact number"
+                    formControlName="contactNumber" name="contactNumber">
+                </div>
+                <span style="color: red;" *ngIf="contactNumber?.invalid && contactNumber?.touched">This field is
+                  required</span>
+
+                <div class="form-group">
+                  <input type="password" class="form-control" id="password" placeholder="Enter your password"
+                    formControlName="password" name="password">
+                </div>
+                <span style="color: red;" *ngIf="password?.invalid && password?.touched"> The password to contain at
+                  least
+                  one
+                  uppercase letter, one lowercase letter, one digit, and one special character and of minimum
+                  length of 8 characters.</span>
+
+                  <div class="form-group">
+                    <input type="text" class="form-control" id="pic" placeholder="Enter your pic url"
+                      formControlName="pic" name="pic">
+                  </div>
+
+
+
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="area" placeholder="Enter your area" formControlName="area"
+                    name="area">
+                </div>
+                <span style="color: red;" *ngIf="area?.invalid && area?.touched">This field is required</span>
+
+                <div class="form-group">
+                  <input type="text" class="form-control" id="city" placeholder="Enter your city" formControlName="city"
+                    name="city">
+                </div>
+                <span style="color: red;" *ngIf="city?.invalid && city?.touched">This field is required</span>
+
+                <div class="form-group">
+                  <input type="text" class="form-control" id="state" placeholder="Enter your state"
+                    formControlName="state" name="state">
+                </div>
+                <span style="color: red;" *ngIf="state?.invalid && state?.touched">This field is required</span>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="country" placeholder="Enter your Country"
+                    formControlName="country" name="country">
+                </div>
+                <span style="color: red;" *ngIf="country?.invalid && country?.touched">This field is required</span>
+                <div class="form-group">
+                  <input type="text" class="form-control" id="pincode" placeholder="Enter your pincode"
+                    formControlName="pincode" name="pincode">
+                </div>
+                <span style="color: red;" *ngIf="pincode?.invalid && pincode?.touched">This field is required</span>
+              </div>
+              <button type="submit" class="btnRegister btn btn-dark" [disabled]="!registrationForm.valid">Submit</button>
+            </form>
+          </div>
+      </div>
+    </div>
+  </div>
+
+</div>

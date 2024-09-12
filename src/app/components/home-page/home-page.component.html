@@ -1,0 +1,112 @@
+<h1 class="centered" style="color:#af3131;">Welcome to Online Food System</h1>
+<ngb-carousel *ngIf="images">
+	<ng-template ngbSlide>
+		<div class="wrapper">
+			<img [src]="images[0]">
+		</div>
+
+	</ng-template>
+	<ng-template ngbSlide>
+		<div class="wrapper">
+			<img [src]="images[1]">
+		</div>
+
+	</ng-template>
+	<ng-template ngbSlide>
+		<div class="wrapper">
+			<img [src]="images[2]">
+		</div>
+
+	</ng-template>
+</ngb-carousel>
+<div class="explore-menu-section pt-5 pb-5" id="exploreMenuSection">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="menu-section-heading">Explore Products</h2>
+			</div>
+			<div class="col-12 col-md-6 col-lg-3 pointer" (click)="gotoLogin()">
+				<div class="shadow menu-item-card p-3 mb-3">
+					<img src="../../../assets/Images/sandwich.jpg" class="menu-item-image w-100" />
+					<h1 class="menu-card-title">Sandwich</h1>
+				</div>
+
+			</div>
+
+			<div class="col-12 col-md-6 col-lg-3 pointer" (click)="gotoLogin()">
+				<div class="shadow menu-item-card p-3 mb-3">
+					<img src="../../../assets/Images/veg.jpg" class="menu-item-image w-100" />
+					<h1 class="menu-card-title">Veg</h1>
+				</div>
+
+			</div>
+
+			<div class="col-12 col-md-6 col-lg-3 pointer" (click)="gotoLogin()">
+				<div class="shadow menu-item-card p-3 mb-3">
+					<img src="../../../assets/Images/nonveg.jpg" class="menu-item-image w-100" />
+					<h1 class="menu-card-title">Non Veg</h1>
+				</div>
+
+			</div>
+
+			<div class="col-12 col-md-6 col-lg-3 pointer" (click)="gotoLogin()">
+				<div class="shadow menu-item-card p-3 mb-3">
+					<img src="../../../assets/Images/desert.jpg" class="menu-item-image w-100" />
+					<h1 class="menu-card-title">Deserts</h1>
+
+				</div>
+
+			</div>
+
+			<div class="col-12 col-md-6 col-lg-3 pointer" (click)="gotoLogin()">
+				<div class="shadow menu-item-card p-3 mb-3">
+					<img src="../../../assets/Images/chinese.jpg" class="menu-item-image w-100" />
+					<h1 class="menu-card-title">Chinese</h1>
+				</div>
+
+			</div>
+
+			<div class="col-12 col-md-6 col-lg-3 pointer" (click)="gotoLogin()">
+				<div class="shadow menu-item-card p-3 mb-3">
+					<img src="../../../assets/Images/pizza.jpg" class="menu-item-image w-100" />
+					<h1 class="menu-card-title">Pizza</h1>
+				</div>
+
+			</div>
+
+			<div class="col-12 col-md-6 col-lg-3 pointer" (click)="gotoLogin()">
+				<div class="shadow menu-item-card p-3 mb-3">
+					<img src="../../../assets/Images/burger.jpg" class="menu-item-image w-100" />
+					<h1 class="menu-card-title">Burger</h1>
+				</div>
+
+			</div>
+
+			<div class="col-12 col-md-6 col-lg-3 pointer" (click)="gotoLogin()">
+				<div class="shadow menu-item-card p-3 mb-3">
+					<img src="../../../assets/Images/momoes.jpg" class="menu-item-image w-100" />
+					<h1 class="menu-card-title">Momoes</h1>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<div class="footer-section pt-5 pb-5">
+	<div class="container">
+		<div class="centered">
+			<div class="row">
+				<div class="col-12 text-center">
+
+					<img src="../../../assets/Images/frontPageLogo.avif" class="food-munch-logo" />
+					<h1 class="footer-section-mail-id"></h1>
+					<p class="footer-section-address">
+						#401, Kushwah Chambers, 702 Makwana Rd ,Gamdevi, Marol Andheri (E), Mumbai-59
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

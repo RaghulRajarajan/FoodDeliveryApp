@@ -1,0 +1,48 @@
+<div class="bg-img">
+  <div class="content">
+      <header>Add Item</header>
+      <form [formGroup]="registrationForm" (ngSubmit)="saveItem()">
+
+
+        <div class="form-group">
+          <label for="itemname" class="control-label">Item Name:</label>
+          <input required minlength="3" type="text" id="itemname"
+              placeholder="Enter Item name" formControlName="itemname" name="itemname">
+        </div>
+          <span style="color: red;" *ngIf="itemname?.invalid && itemname?.touched">This field is required</span>
+          <br>
+
+          <div class="form-group">
+            <label for="itemcost" class="control-label">Item Cost:</label>
+            <input required minlength="3" maxlength="20" type="number" id="itemcost"
+            required placeholder="Enter your Item Cost" formControlName="itemcost" name="itemcost">
+          </div>
+          <span style="color: red;" *ngIf="itemcost?.invalid && itemcost?.touched">This field is required</span>
+          <br>
+          
+
+
+          <div class="form-group">
+            <label for="itemcost" class="control-label">Item Status:</label>
+            <input required minlength="3" maxlength="20" type="text" id="itemstatus"
+            require placeholder="Enter Status" formControlName="itemstatus" name="itemstatus">
+          </div>
+          <span style="color: red;" *ngIf="itemstatus?.invalid && itemstatus?.touched">This field is required</span>
+          <br>
+
+
+          <div class="form-group">
+            <label for="itemimage" class="control-label">Item Image:</label>
+            <input required minlength="3" type="text" id="itemimage"
+            require placeholder="Enter Image url" formControlName="itemimage" name="itemimage">
+          </div>
+          <span style="color: red;" *ngIf="itemimage?.invalid && itemimage?.touched">This field is required</span>
+          <br>
+
+          <button type="submit" class="btn btn-danger">Save Item</button> 
+          <!-- <div class="field">
+              <input type="submit" value="Save Item" (click)="saveItem">
+          </div>    -->
+      </form>
+  </div>
+</div>

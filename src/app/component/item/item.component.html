@@ -1,0 +1,59 @@
+<app-menu></app-menu>
+<div class="bg-img">
+  
+    <div><button class="btn btn-success" *ngIf="!hardcodedAuthentication.isAdminLoggedIn() && hardcodedAuthentication.isRestLoggedIn() && !hardcodedAuthentication.isUserLoggedIn()" routerLink="/registerItem" (click)="addItem()">Add Item</button>
+    <button style="margin-left: 10px;" class="btn btn-success" *ngIf="!hardcodedAuthentication.isAdminLoggedIn() && hardcodedAuthentication.isRestLoggedIn() && !hardcodedAuthentication.isUserLoggedIn()"  (click)="viewOoders()">View Orders</button>
+    </div>
+    <div class="container">
+                <div class="row">
+                    <div *ngFor="let item of items | paginate: { itemsPerPage: count, currentPage: p }" class="col-4 col-md-4 mt-3">
+                        <div class="card">
+                            <img class="card-img-top" src="{{item.itemimage}}" alt="Card image cap"><br>
+                            <div class="row">
+                                <div class="price col-6" >{{item.itemname}}</div>
+                                <div class="price col-6">{{item.itemcost | currency:"INR"}}</div>
+                            </div>
+                            <div class="row" style=" margin-top: 2%; margin-left: 8%;">
+                                <button class=" a btn-success col-5" style="margin-right: 3%;" *ngIf="hardcodedAuthentication.isUserLoggedIn() && item.itemstatus=='Available'"  (click)="addToCart(item.itemid)">Add to Cart</button>
+                               
+                                <button class=" a col-5 btn-success" style="text-align: center; margin-top: 5px;" *ngIf="!hardcodedAuthentication.isAdminLoggedIn()">{{item.itemstatus}}</button>
+                            </div>
+                            <div class="row" style=" margin-top: 2%; margin-left: 8%;">
+                                <button class=" a btn-success col-5" style="margin-right: 3%;" *ngIf="!hardcodedAuthentication.isAdminLoggedIn() && hardcodedAuthentication.isRestLoggedIn()" (click)="updateItem(item.itemid)"> Update Item</button>
+                                <button class=" a col-5 btn-success" *ngIf="!hardcodedAuthentication.isAdminLoggedIn() && hardcodedAuthentication.isRestLoggedIn()" (click)="deleteItem(item.itemid)"> Delete Item</button> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </div>
+    
+    </div>
+    <br>
+    <div class="text-right">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+    
+    
+    
+    <!-- 
+    {
+        "itemname":"Cheesy Pepperoni",
+        "itemstatus":"Available",
+        "itemcost":170,
+        "itemimage":"https://media.istockphoto.com/id/938742222/photo/cheesy-pepperoni-pizza.jpg?s=612x612&w=0&k=20&c=D1z4xPCs-qQIZyUqRcHrnsJSJy_YbUD9udOrXpilNpI="
+        } -->
+    
+    <!-- 
+        {
+            "restname":"Pizza Hub",
+            "managerName":"Akash",
+            "contactNumber":"5161718191",
+            "pic":"https://c.ndtvimg.com/2021-02/bj6olj1o_pizza_625x300_20_February_21.jpg?im=FeatureCrop,algorithm=cascade,width=1200,height=675",
+            "area":"Koregaon Park",
+            "city":"Pune",
+            "state":"Maharashtra",
+            "country":"India",
+            "pincode":"411028",
+            "email":"akash@gmail.com",
+            "password":"Akash@123"
+            } -->

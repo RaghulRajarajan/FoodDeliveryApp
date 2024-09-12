@@ -1,0 +1,33 @@
+<app-menu></app-menu>
+<!-- <div class="container1" *ngIf="!hardcodedAuthentication.isUserLoggedIn() && !hardcodedAuthentication.isAdminLoggedIn() "> -->
+  <div class="container1"> 
+    <h1 class="heading2">Food Delivery Application</h1>
+  <div class="container2">
+      <h3>Discover the best food & drinks near you</h3>
+  </div>
+  <div class="h-100 d-flex align-items-center justify-content-center">
+        <nav class="navbar">
+        
+        </nav>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <div class="row">
+      <div *ngFor="let rest of restaurant | paginate: { itemsPerPage: count, currentPage: p }" class="col-6 col-md-4 mt-4">
+        <!-- col-6 col-md-4 mt-4 -->
+          <div class="card h-100"> 
+              <img class="card-img-top h-100" src="{{rest.pic}}" alt="Card image cap" (click)="viewRestaurant(rest.restid)">
+              <div class="card-body">
+                  <p class="card-text">{{rest.restname}}</p>
+              </div>
+          </div> 
+      </div>
+  </div>
+</div>
+<br>
+<div class="text-right">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

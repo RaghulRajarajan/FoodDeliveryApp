@@ -1,0 +1,49 @@
+<app-menu></app-menu>
+<div class="bg-img">
+    <div class="content">
+        <header>Update Item</header>
+        <form (ngSubmit)="updateItem()" #itemForm="ngForm">
+
+            <div class="form-group">
+                <label for="itemname" class="control-label">Item Name:</label>
+                <input type="text" required placeholder="Enter Item name" name="itemname" [(ngModel)]="item.itemname"
+                    #itemname="ngModel" pattern="[a-zA-Z][a-zA-Z ]*$">
+            </div>
+            <span class="text-danger"
+                *ngIf="(itemname.touched || itemForm.submitted) && itemname.errors?.['required']">
+                This field is required
+            </span>
+            <span class="text-danger" *ngIf="itemname.touched && itemname.errors?.['pattern']">
+                Invalid format
+            </span>
+            <br>
+
+            <div class="form-group">
+                <label for="itemcost" class="control-label">Item Cost:</label>
+                <input type="number" required placeholder="Enter Cost of Item" name="itemcost"
+                [(ngModel)]="item.itemcost" #itemcost="ngModel">
+            </div>
+            <span class="text-danger"
+                *ngIf="(itemcost.touched || itemForm.submitted) && itemcost.errors?.['required']">
+                This field is required
+            </span>
+            <br>
+
+            <div class="form-group">
+                <label for="itemstatus" class="control-label">Item Status:</label>
+                <input type="text" required placeholder="Enter Status of Item" name="itemstatus"
+                    [(ngModel)]="item.itemstatus" #itemstatus="ngModel" pattern="[a-zA-Z][a-zA-Z ]*$">
+            </div>
+            <span class="text-danger"
+                *ngIf="(itemstatus.touched || itemForm.submitted) && itemstatus.errors?.['required']">
+                This field is required
+            </span>
+            <span class="text-danger" *ngIf="itemstatus.touched && itemstatus.errors?.['pattern']">
+                Invalid format
+            </span>
+            <br>
+        
+            <button type="submit" class="btn btn-danger">Update Item</button> 
+        </form>
+    </div>
+</div>

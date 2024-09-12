@@ -1,0 +1,45 @@
+<form [formGroup]="cardDatils" (ngSubmit)="validCardDetails()">
+    <div class="container p-0">
+        <div class="card px-4">
+            <p class="h8 py-3">Payment Details</p>
+            <div class="row gx-3" >
+                <div class="col-12">
+                    <div class="d-flex flex-column">
+                        <p class="text mb-1">Person Name</p>
+                        <input class="form-control mb-3"id="person" type="text"  formControlName='personName' placeholder="Enter Name" >
+                        <span *ngIf="cardDatils.get('personName')?.errors?.required && cardDatils.get('personName')?.touched" class="text-danger">Person Name is required.</span> 
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="d-flex flex-column">
+                        <p class="text mb-1">Card Number</p>
+                        <input class="form-control mb-3" formControlName="cardNum"  type="number" placeholder="1234 5678 4356 1278">
+                        <span *ngIf="cardDatils.get('cardNum')?.errors?.required  && cardDatils.get('cardNum')?.touched" class="text-danger">Card number is required.</span> 
+                    
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="d-flex flex-column">
+                        <p class="text mb-1">Expiry</p>
+                        <input class="form-control mb-3" type="text" formControlName="expiryDate" placeholder="MM/YYYY">
+                        <span *ngIf="cardDatils.get('expiryDate')?.errors?.required && cardDatils.get('expiryDate')?.touched" style="color: red;">expiry date reqired</span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="d-flex flex-column">
+                        <p class="text mb-1">CVV/CVC</p>
+                        <input class="form-control mb-3 pt-2 " formControlName="cvv" type="password" placeholder="***">
+                        <span *ngIf=" cardDatils.get('cvv')?.errors?.required && cardDatils.get('cvv')?.touched" style="color: red;">CVV is required</span>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-primary mb-3" [disabled]="cardDatils.invalid"  (click)="payment()">
+                      <span class="ps-3">Pay &#8377;{{totalAmountToPay}}</span>
+                      <span class="fas fa-arrow-right"></span>
+                    </button>
+                  </div>
+                
+            </div>
+        </div>
+    </div>
+    </form>

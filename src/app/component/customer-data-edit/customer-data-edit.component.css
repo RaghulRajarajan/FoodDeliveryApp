@@ -1,0 +1,43 @@
+*{
+    font-family: 'Poppins', sans-serif;
+    /* color: white; */
+}
+html{
+    background: url("restaurantbg.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-color: grey;
+    background-blend-mode: multiply;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding-top: 30px;
+    box-sizing: border-box;
+}
+
+.form-wrapper {
+    margin: auto;
+    border: 1px solid #ccc;
+    padding: 40px;
+    width: 400px;
+    background: url("restaurantbg2.jpeg");
+    color: #333;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px; /* Add margin bottom for spacing */
+}
+
+.form-group > .form-control,
+.btn-primary {
+    width: 100%;
+}
+
+label{
+    font-weight: bold;
+}

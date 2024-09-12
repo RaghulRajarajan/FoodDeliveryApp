@@ -1,0 +1,21 @@
+.btn-classs{
+    background:rgb(94,0,0);
+    border-radius:50%;
+    height: 30px;
+    width: 30px;
+    font-size:17px;
+    color:#fff;
+    margin:0 8px;
+}
+html{
+    background: url("restaurantbg2.jpeg");
+    background-size: cover;
+}
+.btn{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}

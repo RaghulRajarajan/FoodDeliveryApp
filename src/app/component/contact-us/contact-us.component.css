@@ -1,0 +1,16 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+html{
+    color: white;
+    height: 75vh;
+    background: url("restaurantbg.jpeg");
+    background-size: cover;
+    background-color: grey; 
+    background-blend-mode: multiply;
+}
+label{
+    font-size: 15px;
+    font-weight: bold;
+}

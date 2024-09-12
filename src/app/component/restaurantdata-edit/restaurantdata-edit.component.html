@@ -1,0 +1,120 @@
+<html>
+    <div class="container-fluid">
+        <div class="content">
+            <h2>Update Restaurant</h2>
+            <form (ngSubmit)="updateRest()" #itemForm="ngForm">
+                <div class="form-group">
+                    <label for="restname" class="control-label">Restaurant Name:</label>
+                    <input type="text" class="form-control"
+                    placeholder="Enter rest name" name= "restname" [(ngModel)]="rest.restname" #restname="ngModel" required>
+                </div>
+                <span class="text-warning"
+  
+                *ngIf="(restname.touched || itemForm.submitted) && restname.errors?.['required']">
+  
+                Email is required
+  
+                </span>
+                <br>
+                <div class="form-group">
+                    <label for="area" class="control-label">Area:</label>
+                    <input type="text" class="form-control" placeholder="Enter area"
+                    name= "area" [(ngModel)]="rest.area" #area="ngModel" required>
+                </div>
+                <span class="text-warning"
+  
+                *ngIf="(area.touched || itemForm.submitted) && area.errors?.['required']">
+  
+                Area is required
+  
+                </span>
+                <br>
+                <div class="form-group">
+                    <label for="city" class="control-label">City:</label>
+                    <input type="text" class="form-control" placeholder="Enter city"
+                    name= "city" [(ngModel)]="rest.city" #city="ngModel" required>
+                </div>
+                <span class="text-warning"
+  
+                *ngIf="(city.touched || itemForm.submitted) && city.errors?.['required']">
+  
+                City is required
+  
+                </span>
+                <br>
+                <div class="form-group">
+                    <label for="state" class="control-label">State:</label>
+                    <input type="text" class="form-control" placeholder="Enter state"
+                    name= "state" [(ngModel)]="rest.state" #state="ngModel" required>
+                </div>
+                <span class="text-warning"
+  
+                *ngIf="(state.touched || itemForm.submitted) && state.errors?.['required']">
+  
+                State is required
+  
+                </span>
+                <br>
+                <div class="form-group">
+                    <label for="country" class="control-label">Country:</label>
+                    <input type="text" class="form-control" placeholder="Enter country"
+                    name= "country" [(ngModel)]="rest.country" #country="ngModel" required>
+                </div>
+                <span class="text-warning"
+  
+                *ngIf="(country.touched || itemForm.submitted) && country.errors?.['required']">
+  
+                Country is required
+  
+                </span>
+                <br>
+                <div class="form-group">
+                    <label for="pincode" class="control-label">Pincode</label>
+                    <input type="text" class="form-control" placeholder="Enter pincode"
+                    name= "pincode" [(ngModel)]="rest.pincode" #pincode="ngModel" minlength="6" maxlength="6" required>
+                </div>
+                <span class="text-warning"
+  
+                *ngIf="(country.touched || itemForm.submitted) && country.errors?.['required']">
+  
+                Pincode is required
+  
+                </span>
+                <br>
+                <div class="form-group">
+                    <label for="manangerName" class="control-label">Manager Name:</label>
+                    <input type="text" class="form-control" placeholder="Enter Manager Name"
+                    name= "managerName" [(ngModel)]="rest.managerName" #managerName="ngModel" required>
+                </div>
+                <span class="text-warning"
+  
+                *ngIf="(managerName.touched || itemForm.submitted) && managerName.errors?.['required']">
+  
+                Manager Name is required
+  
+                </span>
+                <br>
+                <div class="form-group">
+                    <label for="contactNumber" class="control-label">Contact Number:</label>
+                    <input type="text" class="form-control" placeholder="Enter contactNumber" minlength="10" maxlength="10"
+                    name= "contactNumber" [(ngModel)]="rest.contactNumber" #contactNumber="ngModel" required>
+                </div>
+                <span class="text-warning"
+  
+                *ngIf="(contactNumber.touched || itemForm.submitted) && contactNumber.errors?.['required']">
+  
+                Contact Number is required
+  
+                </span>
+                <br>
+                <div class="form-group" *ngIf="isrestLogIn">
+                    <label for="status" class="control-label">Approval Status:</label>
+                    <input type="text" class="form-control" placeholder="approval"
+                    name="status" [(ngModel)]="rest.status" #status="ngModel" required>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-danger">Update Restaurant</button> 
+            </form>
+        </div>
+    </div>
+</html>

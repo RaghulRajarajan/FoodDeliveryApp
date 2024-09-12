@@ -1,0 +1,49 @@
+<app-menu></app-menu>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="login-box">
+    <h2>Login</h2>
+    <form (ngSubmit)="loginRestaurant()" #LoginForm="ngForm">
+      <div class="user-box">
+        <input type="text" class="form-control" #restloginemail="ngModel" [(ngModel)]="loginData.restloginemail"
+          name="restloginemail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+        <span class="text-danger"
+          *ngIf="(restloginemail.touched || LoginForm.submitted) && restloginemail.errors?.['required']">
+          Email is required
+        </span>
+        <span class="text-danger" *ngIf="restloginemail.touched && restloginemail.errors?.['pattern']">
+          Enter a valid email address
+        </span>
+        <label>Email</label>
+      </div>
+      <div class="user-box">
+        <input type="password" #restloginpassword="ngModel" [(ngModel)]="loginData.restloginpassword"
+          name="restloginpassword" required>
+
+        <span class="text-danger"
+          *ngIf="(restloginpassword.touched || LoginForm.submitted) && restloginpassword.errors?.['required']">
+          Password is required
+        </span>
+        <label>Password</label>
+      </div>
+      <button type="submit" [disabled]="!LoginForm.valid" class="btn btn-danger">
+
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Login</button>
+    </form>
+  </div>
+</body>
+
+</html>

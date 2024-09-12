@@ -1,0 +1,34 @@
+<app-menu></app-menu>
+<div class="content">
+<br><br>
+  <table class="table table-dark table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Customer Id</th>
+        <th scope="col">Customer Name</th>
+        <th scope="col">Customer Email</th>
+        <th scope="col">Customer Number</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody style="height: 40vh;">
+      <tr *ngFor="let cus of customer | paginate: { itemsPerPage: count, currentPage: p }" class="table-success">
+        <td>{{cus.customerid}}</td>
+        <td>{{cus.customername}}</td>
+        <td>{{cus.customeremail}}</td>
+        <td>{{cus.customermobilenumber}}</td>
+        <td>
+          <button class="btn btn-danger" (click)="customerUpdate(cus.customerid)">Update</button>
+         
+        </td>
+      </tr>
+  
+    </tbody>
+  </table>
+  
+ <br> 
+<br>
+<div class="text-right">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+</div>

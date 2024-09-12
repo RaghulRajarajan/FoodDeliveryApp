@@ -1,0 +1,14 @@
+.centered {
+	display: flex;
+	justify-content: center;
+}
+
+table tr td {
+	border: solid black;
+	padding: 5px 20px;
+}
+
+th {
+	border: solid black;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}

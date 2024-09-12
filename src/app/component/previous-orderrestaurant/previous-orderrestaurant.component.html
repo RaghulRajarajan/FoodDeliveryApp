@@ -1,0 +1,30 @@
+<table class="table table-success table-striped">
+    <thead class="table-dark">
+      <tr>
+       
+         <th scope="col">Customer Name</th>
+         <th scope="col">Order Date</th>
+         <th scope="col">Mobile Number</th>
+         <th scope="col">Email</th>
+        <!-- <th scope="col">status</th> -->
+        <th scope="col">Item Name</th>
+        <th scope="col">Item price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders | paginate: { itemsPerPage: count, currentPage: p }" class="table-success">
+        <td>{{order.cus.customername}}</td>
+        <td>{{order.orderDate}}</td>
+        <td>{{order.cus.customermobilenumber}}</td>
+        <td>{{order.cus.customeremail}}</td>
+        <td>{{order.item.itemname}}</td>
+        <td>{{order.item.itemcost}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+
+  <div class="text-right">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+  
